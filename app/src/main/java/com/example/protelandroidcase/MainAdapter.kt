@@ -6,53 +6,48 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.protelandroidcase.news.Article
+import com.example.protelandroidcase.NewsObjects.Article
 import com.squareup.picasso.Picasso
 
 class MainAdapter(val dataSet: List<Article>) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val newTitle: TextView
         val newDescription: TextView
         val newImage: ImageView
 
         init {
-            // Define click listener for the ViewHolder's View.
+            // ViewHolder View'u icin clickListener olustur.
             newTitle = view.findViewById(R.id.textView_new_title)
             newDescription = view.findViewById(R.id.textView_new_description)
             newImage = view.findViewById(R.id.newImage)
         }
     }
 
-    // Create new views (invoked by the layout manager)
+    // Yeni Viewlar olustur
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
+        // Bir liste elemani olarak view olustur
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.new_row, viewGroup, false)
 
         return ViewHolder(view)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    // View'un icerigi degistirilir
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
+        // Datasetten element alinir ve view'in icerigi o element ile degistirilir
         viewHolder.newTitle.text = dataSet[position].title
         viewHolder.newDescription.text = dataSet[position].description
         val newThumbnailImage = dataSet[position].urlToImage
-        println("Image URL: ${newThumbnailImage}")
+        println("New Title: ${dataSet[position].title} Date: ${dataSet[position].publishedAt}")
 
         Picasso.get().load(newThumbnailImage)
             .into(viewHolder.newImage)
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // news.articles datasetinin boyutunu dondur
     override fun getItemCount() = dataSet.size
 
 }

@@ -1,4 +1,4 @@
-package com.example.protelandroidcase.news
+package com.example.protelandroidcase.NewsObjects
 
 data class News(
     val articles: List<Article>,

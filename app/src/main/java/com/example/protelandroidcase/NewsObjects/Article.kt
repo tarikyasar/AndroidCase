@@ -1,4 +1,4 @@
-package com.example.protelandroidcase.news
+package com.example.protelandroidcase.NewsObjects
 
 data class Article(
     val author: String,

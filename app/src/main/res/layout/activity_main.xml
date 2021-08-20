@@ -15,14 +15,32 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <Button
-            android:id="@+id/datePickerButton"
+
+        <TextView
+            android:id="@+id/textViewFrom"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/pick_date"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="From: "
+            android:textSize="20sp"
             />
+        <TextView
+            android:id="@+id/textViewDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="20dp" />
+
+        <Button
+            android:id="@+id/buttonDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_date"
+            />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
