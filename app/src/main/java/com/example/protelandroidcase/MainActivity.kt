@@ -1,30 +1,45 @@
 package com.example.protelandroidcase
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.widget.Toolbar
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 import com.example.protelandroidcase.news.News
+import java.lang.NullPointerException
+import java.util.*
 import android.widget.ArrayAdapter as ArrayAdapter
 
 
 class MainActivity : AppCompatActivity() {
-    private var newsTitles = mutableListOf(
-        "Test New 1",
-        "Test New 2"
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        try {
+            this.supportActionBar!!.hide()
+        } catch (e: NullPointerException) {
+        }
+
         setContentView(R.layout.activity_main)
 
+        renderNews()
+    }
+
+    fun renderNews() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView_main)
 
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        fetchJson()
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(this,
+                LinearLayoutManager.VERTICAL
+            )
+        )
 
         val url = "https://newsapi.org/v2/everything?q=football&from=2021-08-18&sortBy=publishedAt&apiKey=" + BuildConfig.API_KEY
 
@@ -39,28 +54,15 @@ class MainActivity : AppCompatActivity() {
 
                 val news = gson.fromJson(body, News::class.java)
 
-                // val newsTitles = arrayOfNulls<String>(news.articles.size)
-
-                for (i in 0 until news.articles.size) {
-                    newsTitles.add(news.articles[i].title)
-                    println("New: ${news.articles[i].title}")
-
+                runOnUiThread {
+                    recyclerView.adapter = MainAdapter(news.articles)
                 }
-
-                val adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, newsTitles)
-
-                println("Test Size: ${newsTitles.size}")
             }
 
             override fun onFailure(call: Call, e: IOException) {
                 println("Failed to execute.")
             }
         })
-
-        println("News Size: ${newsTitles.size}")
-    }
-
-    fun fetchJson() {
         println("Attempting to fetch json...")
     }
 }

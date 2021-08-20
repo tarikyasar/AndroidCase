@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ProtelAndroidCase</string>
     <string name="get_news">Get News</string>
+    <string name="new_title">New Title</string>
+    <string name="new_description">New Description</string>
+    <string name="todo">TODO</string>
+    <string name="pick_date">Pick Date</string>
 </resources>
