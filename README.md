@@ -2,10 +2,10 @@
 
 
 ## Haber Akışı
-![Haber Akışı](/screenshots/news_feed.png)
+![Haber Akışı](/screenshots/news_feed.png | width=100)
 
 ## Tarih Seçim
-![Tarih Seçim](/screenshots/date_picker.png)
+![Tarih Seçim](/screenshots/date_picker.png | width=100)
 
 ## Haber Website Görünümü
-![Haber Website Görünümü](/screenshots/new_webview.png)
+![Haber Website Görünümü](/screenshots/new_webview.png | width=100)
