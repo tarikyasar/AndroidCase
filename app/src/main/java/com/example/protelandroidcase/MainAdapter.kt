@@ -18,7 +18,6 @@ class MainAdapter(val dataSet: List<Article>) :
         val newImage: ImageView
 
         init {
-            // ViewHolder View'u icin clickListener olustur.
             newTitle = view.findViewById(R.id.textView_new_title)
             newDescription = view.findViewById(R.id.textView_new_description)
             newImage = view.findViewById(R.id.newImage)
@@ -36,8 +35,7 @@ class MainAdapter(val dataSet: List<Article>) :
 
     // View'un icerigi degistirilir
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        // Datasetten element alinir ve view'in icerigi o element ile degistirilir
+        // Datasetten veri alinir ve view'in icerigi o veri ile degistirilir
         viewHolder.newTitle.text = dataSet[position].title
         viewHolder.newDescription.text = dataSet[position].description
         val newThumbnailImage = dataSet[position].urlToImage
@@ -49,5 +47,4 @@ class MainAdapter(val dataSet: List<Article>) :
 
     // news.articles datasetinin boyutunu dondur
     override fun getItemCount() = dataSet.size
-
 }

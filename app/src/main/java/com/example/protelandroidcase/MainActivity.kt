@@ -18,10 +18,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    var cal = java.util.Calendar.getInstance()
+    private var cal = java.util.Calendar.getInstance()
 
     // Tekrar tekrar kullanilacagi icin tarih formati icin degisken olustur
-    val dateformat = "yyyy-MM-dd"
+    private val dateformat = "yyyy-MM-dd"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        var textviewDate = findViewById<TextView>(R.id.textViewDate1)
-        var buttonDate = findViewById<Button>(R.id.buttonDate1)
+        val textviewDate = findViewById<TextView>(R.id.textViewDate1)
+        val buttonDate = findViewById<Button>(R.id.buttonDate1)
 
         // Bugunden 10 gun once basla
         textviewDate.text = getCalculatedDate(dateFormat = dateformat, days = -10)
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Haberleri goruntuleme fonksiyonu
-    fun renderNews(fromDate: String, toDate: String) {
+    private fun renderNews(fromDate: String, toDate: String) {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView_main)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
