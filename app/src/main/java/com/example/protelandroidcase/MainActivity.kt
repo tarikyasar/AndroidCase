@@ -1,6 +1,7 @@
 package com.example.protelandroidcase
 
 import android.app.DatePickerDialog
+import android.graphics.Color
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         val textviewDate = findViewById<TextView>(R.id.textViewDate1)
         val buttonDate = findViewById<Button>(R.id.buttonDate1)
+
+        buttonDate.setBackgroundColor(Color.WHITE)
+        buttonDate.setTextColor(Color.BLACK)
 
         // Bugunden 10 gun once basla
         textviewDate.text = getCalculatedDate(dateFormat = dateformat, days = -10)
