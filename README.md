@@ -2,10 +2,10 @@
 
 
 ## Haber Akışı
-<img src="/screenshots/news_feed.png" width="108" height="222">)
+<img src="/screenshots/news_feed.png" width="540" height="1100">)
 
 ## Tarih Seçim
-![Tarih Seçim](/screenshots/date_picker.png)
+<img src="/screenshots/date_picker.png" width="540" height="1100">)
 
 ## Haber Website Görünümü
-![Haber Website Görünümü](/screenshots/new_webview.png)
+<img src="/screenshots/new_webview.png" width="540" height="1100">)
