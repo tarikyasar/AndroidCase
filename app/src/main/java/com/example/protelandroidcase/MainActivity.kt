@@ -104,6 +104,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // Degisen tarihi textview'a yazar
+    // Sonrasinda haberleri tekrardan render eder
     private fun updateDateInView() {
         val sdf = SimpleDateFormat(dateformat, Locale.US)
         val textviewDate = findViewById<TextView>(R.id.textViewDate1)
@@ -113,6 +115,7 @@ class MainActivity : AppCompatActivity() {
         renderNews(fromDate = textviewDate.text.toString(), toDate = getToday(dateFormat = dateformat))
     }
 
+    // Bugunun tarihini dondurur
     private fun getToday(dateFormat: String?): String {
         val cal = java.util.Calendar.getInstance()
         val s = SimpleDateFormat(dateFormat)
@@ -120,6 +123,8 @@ class MainActivity : AppCompatActivity() {
         return s.format(Date(cal.timeInMillis))
     }
 
+    // Verilen parametre kadar gun oncesini dondurur
+    // Takvimde baslangic tarihini ayarlamak icin kullanildi
     private fun getCalculatedDate(dateFormat: String?, days: Int): String? {
         val cal = java.util.Calendar.getInstance()
         val s = SimpleDateFormat(dateFormat)

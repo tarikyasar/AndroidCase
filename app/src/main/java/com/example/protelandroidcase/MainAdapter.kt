@@ -17,7 +17,7 @@ import android.net.Uri
 import androidx.core.content.ContextCompat
 
 
-class MainAdapter(val dataSet: List<Article>) :
+class MainAdapter(private val dataSet: List<Article>) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,13 +32,8 @@ class MainAdapter(val dataSet: List<Article>) :
             newURL = view.findViewById(R.id.newURL)
             newImage = view.findViewById(R.id.newImage)
 
+            // Haber view'una tiklandiginda url'
             view.setOnClickListener {
-                /*
-                Intent(view.context, NewWebView::class.java)
-                val openURL = Intent(android.content.Intent.ACTION_VIEW)
-                openURL.data = Uri.parse(newURL.text.toString())
-                 */
-
                 val intent = Intent(view.context, NewWebView::class.java)
                 intent.putExtra("newURL", newURL.text)
 
