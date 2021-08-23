@@ -80,7 +80,11 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        val url = "https://newsapi.org/v2/everything?q=football&from=" + fromDate + "&to=" + toDate + "&sortBy=publishedAt&pageSize=100&apiKey=" + BuildConfig.API_KEY
+        // Normalde API anahtarini local.properties icinde tutuyordum ancak kontrol eden kisi acisindan rahat olsun diye
+        // anahtari bu sekilde acikta biraktim
+
+        // val url = "https://newsapi.org/v2/everything?q=football&from=" + fromDate + "&to=" + toDate + "&sortBy=publishedAt&pageSize=100&apiKey=" + BuildConfig.API_KEY
+        val url = "https://newsapi.org/v2/everything?q=football&from=${fromDate}&to=${toDate}&sortBy=publishedAt&pageSize=100&apiKey=ae68088e70d04639b4950bdc9d546924"
 
         val request = Request.Builder().url(url).build()
 
